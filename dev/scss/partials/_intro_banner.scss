@@ -1,0 +1,45 @@
+.intro_banner {
+	display: flex;
+	flex-direction: column;
+	padding: 35px 23px;
+	margin: 0 0 40px;
+	background:$orange url(../../img/banner_circles.png) no-repeat right top / cover;
+	@media (min-width: $screen-sm) {
+		align-items: center;
+		justify-content: space-between;
+		flex-direction: row;
+		margin: 0;
+	}
+
+	span {
+		font-size: 22px;
+		line-height: 26px;
+		font-family: 'aktiv-grotesk-std', Helvetica, Arial, sans-serif;
+		font-weight: 300;
+		color: $purple_text;
+		width: 100%;
+		max-width: 60%;
+	}
+
+	a {
+		font-size: 16px;
+		line-height: 18px;
+		font-family: 'lexia', Georgia, serif;
+		color: #fff;
+		background-color: $purple_bg1;
+		padding: 8px 16px 9px;
+		border-radius: 20px;
+		margin: 30px 90px 0;
+		transition: background-color 0.2s ease-out, color 0.2s ease-out; 
+
+		@media (min-width: $screen-sm) {
+			margin: 0 105px;
+		}
+
+		&:hover {
+			background-color:#fff;
+			color: #f32f66;
+			text-decoration: none !important;
+		}
+	}
+}

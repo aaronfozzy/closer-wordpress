@@ -1,0 +1,17 @@
+.page_cont {
+	padding: 40px;
+	
+	&.has_border {
+		border-bottom: 1px solid #e2e0dd;
+	}
+}
+
+
+.home {
+	.latest_banner_zone {
+		background: #ededed;
+	}
+}
+.grid {
+	display: grid;
+}
