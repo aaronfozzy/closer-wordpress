@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="43px" height="43px" viewBox="0 0 43 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-accordion-arrow</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-accordion-arrow" transform="translate(21.500000, 21.500000) scale(1, -1) translate(-21.500000, -21.500000) ">
+            <circle id="Oval" fill="#FBAF3F" fill-rule="nonzero" cx="21.5" cy="21.5" r="21.5"></circle>
+            <polyline id="Path" stroke="#231F20" stroke-width="3" points="12 26 21.6874 16.3126 31.3747 26"></polyline>
+        </g>
+    </g>
+</svg>

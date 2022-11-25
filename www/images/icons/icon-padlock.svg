@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="19px" viewBox="0 0 14 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-padlock</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-padlock" fill="#272727">
+            <rect id="Rectangle" fill-rule="nonzero" x="0" y="8" width="14" height="11"></rect>
+            <path d="M13,12 L13,6 C13,2.68629 10.3139,0 7.00039,0 C3.6869,0 1.00079,2.68629 1.00079,6 C1.00079,7.63527 1,12 1,12 L3,12 L3.00052,6 C3.00052,3.79086 4.79127,2 7.00026,2 C9.20925,2 11,3.79086 11,6 L11,12 L13,12 Z" id="Path"></path>
+        </g>
+    </g>
+</svg>

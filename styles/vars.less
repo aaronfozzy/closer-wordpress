@@ -1,0 +1,171 @@
+/*
+
+LESS variables and mixins
+- Include at the top of other LESS files
+- Try to name vars with their type at the start, e.g. @color-background. This
+  can help with IDE auto-completion.
+
+*/
+
+/* URL paths */
+@url-theme: '/wp-content/themes/closer';
+
+/* Fonts */
+@font-stack-sans: 'aktiv-grotesk-std', Helvetica, Arial, sans-serif;
+/*
+Aktiv-Grotesk variants set by weights:
+300		Light
+400		Regular
+500		Medium
+700		Bold
+*/
+@font-stack-serif: 'lexia', Georgia ,serif;
+/*
+Lexia variants set by weights:
+300		Light
+400		Regular
+700		Bold
+*/
+
+.Fontello() {
+	font-family: "fontello";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	/* opacity: .8; */
+
+	/* For safety - reset parent styles, that can break glyph codes*/
+	font-variant: normal;
+	text-transform: none;
+
+	/* fix buttons height, for twitter bootstrap */
+	line-height: 1em;
+
+	/* Animation center compensation - margins should be symmetric */
+	/* remove if not needed */
+	margin-left: .2em;
+
+	/* you can be more comfortable with increased icons size */
+	/* font-size: 120%; */
+
+	/* Uncomment for 3D effect */
+	/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+
+}
+
+/* Colours */
+@color-background: #fff;
+@color-body-text: #6E6D6D;
+@color-grey-very-dark: #303039;
+@color-grey-dark: #3e3e49;
+@color-grey-light: #959595;
+@color-grey-quite-light1: #cecbc4;
+@color-grey-quite-light2: #d2cecb;
+@color-grey-very-light: #e2e0dd;
+@color-grey-very-very-light: #f7f7f7;
+@color-pink: #f32f66;
+@color-green: #85c655;
+@color-green-quite-light: #e1f1d4;
+@color-green-light: #eff7e3;
+@color-cyan: #479c9b;
+@color-cyan-light: #eaf6f6;
+@color-blue-light: #00afef;
+
+/* Measurements */
+@breakpoint-large: 1270px;
+@breakpoint-side-nav: 1000px;
+@breakpoint-full-carousel: 800px;
+@breakpoint-medium: 640px;
+// These are unitless absolute measurements for the home carousel, used to calculate relative, proportional measurements
+@home-carousel-abs-full-width: 960;
+@home-carousel-abs-image-width: 690;
+@home-carousel-abs-text-width: ( @home-carousel-abs-full-width - @home-carousel-abs-image-width );
+@home-carousel-abs-height: 310;
+@home-carousel-rel-image-width: ( @home-carousel-abs-image-width / @home-carousel-abs-full-width ) * 100%;
+@home-carousel-rel-text-width: ( @home-carousel-abs-text-width / @home-carousel-abs-full-width ) * 100%;
+@home-carousel-rel-height: ( @home-carousel-abs-height / @home-carousel-abs-full-width ) * 100%;
+
+/* Mixins
+- Use CamelCaps to distinguish from normal CSS classes
+-----------------------------------------------------------------------------------*/
+
+// Sometimes it's necessary to add clearfix to something in CSS rather than add the class in HTML...
+.ClearFix() {
+	zoom: 1;
+	&:before, &:after {
+		content: "\0020";
+		display: block;
+		height: 0;
+		overflow: hidden;
+	}
+	&:after { clear: both; }
+}
+
+.BorderRadius( @radius: 2px ) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+// Inline block with IE 7 hack
+.InlineBlock() {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+
+/*
+Transparent background
+@link	http://stackoverflow.com/a/15370512/1087660
+*/
+.TransparentBackground( @color, @alpha ) {
+	@rgba: rgba( red( @color ), green( @color ), blue( @color ), @alpha );
+	@argb: argb( @rgba );
+	background-color: @color;
+	background-color: @rgba;
+	filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{argb}, endColorstr=@{argb})";
+	-ms-filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{argb}, endColorstr=@{argb})";
+}
+
+/*
+Drop shadow
+@link	http://styles-tricks.com/snippets/styles/useful-css3-less-mixins/
+*/
+.DropShadow ( @x: 2px, @y: 2px, @blur: 2px, @spread: 0, @alpha: 0.25 ) {
+	-webkit-box-shadow: @x @y @blur @spread rgba( 0, 0, 0, @alpha );
+	-moz-box-shadow: @x @y @blur @spread rgba( 0, 0, 0, @alpha );
+	box-shadow: @x @y @blur @spread rgba( 0, 0, 0, @alpha );
+}
+
+/*
+Gradient backgrounds with fallback image
+@link	http://styles-tricks.com/css3-gradients/
+*/
+.GradientBackgroundVertical( @top-color, @bottom-color, @image-url, @image-pos-x: 0, @image-pos-y: 0 ) {
+	background-color: @bottom-color; /* fallback/image non-cover color */
+	background-image: url(@{image-url});
+	background-position: @image-pos-x @image-pos-y; /* fallback image */
+	background-repeat: repeat-x;
+	background-image: -webkit-gradient( linear, 0% 0%, 0% 100%, from( @top-color ), to( @bottom-color ) ); /* Safari 4+, Chrome 1-9 */
+	background-image: -webkit-linear-gradient( top, @top-color, @bottom-color ); /* Safari 5.1+, Mobile Safari, Chrome 10+ */
+	background-image: -moz-linear-gradient( top, @top-color, @bottom-color ); /* Firefox 3.6+ */
+	background-image: -ms-linear-gradient( top, @top-color, @bottom-color ); /* IE 10+ */
+	background-image: -o-linear-gradient( top, @top-color, @bottom-color ); /* Opera 11.10+ */
+}
+.GradientBackgroundHorizontal( @left-color, @right-color, @image-url, @image-pos-x: 0, @image-pos-y: 0 ) {
+	background-color: @left-color; /* fallback/image non-cover color */
+	background-image: url(@{image-url});
+	background-position: @image-pos-x @image-pos-y; /* fallback image */
+	background-repeat: repeat-y;
+	background-image: -webkit-gradient( linear, 0% 0%, 100% 0%, from( @left-color ), to( @right-color ) ); /* Safari 4+, Chrome 1-9 */
+	background-image: -webkit-linear-gradient( left, @left-color, @right-color ); /* Safari 5.1+, Mobile Safari, Chrome 10+ */
+	background-image: -moz-linear-gradient( left, @left-color, @right-color ); /* Firefox 3.6+ */
+	background-image: -ms-linear-gradient( left, @left-color, @right-color ); /* IE 10+ */
+	background-image: -o-linear-gradient( left, @left-color, @right-color ); /* Opera 11.10+ */
+}
